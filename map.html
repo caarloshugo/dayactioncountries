@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script src='http://api.tiles.mapbox.com/mapbox.js/v1.0.2/mapbox.js'></script>
-  <link href='http://api.tiles.mapbox.com/mapbox.js/v1.0.2/mapbox.css' rel='stylesheet' />
-  <!--[if lte IE 8]>
-    <link href='http://api.tiles.mapbox.com/mapbox.js/v1.0.2/mapbox.ie.css' rel='stylesheet' >
-  <![endif]-->
-  <style>
-    body { margin:0; padding:0; }
-    #map { position:absolute; top:0; bottom:0; width:100%; }
-  </style>
+	<script src='http://api.tiles.mapbox.com/mapbox.js/v1.0.2/mapbox.js'></script>
+	<link href='http://api.tiles.mapbox.com/mapbox.js/v1.0.2/mapbox.css' rel='stylesheet' />
+	<!--[if lte IE 8]>
+		<link href='http://api.tiles.mapbox.com/mapbox.js/v1.0.2/mapbox.ie.css' rel='stylesheet' >
+	<![endif]-->
+	
+	<style>
+		body { margin:0; padding:0; }
+		#map { position:absolute; top:0; bottom:0; width:100%; }
+	</style>
 </head>
+
 <body>
+
 <div id='map'></div>
+
 <script type='text/javascript'>
-var map = L.mapbox.map('map', 'caarloshugo.dayactioncountries_v1', { minZoom: 2, maxZoom:6, }).setView([18.029296875, 75.46769474828896], 2);
+var map = L.mapbox.map('map', 'caarloshugo.dayactioncountries_v1', { minZoom: 2, maxZoom:6, }).setView([11.5, 1.2], 2);
 
 map.touchZoom.disable();
 map.doubleClickZoom.disable();
@@ -32,13 +36,13 @@ function Countrie(name, lat, lon, url) {
 
 var countries = [];
 
+/*America & others*/
 countries.push(new Countrie("El salvador",   13.58, -88.94, 					     "http://makebudgetspublic.org/?page_id=193"));
 countries.push(new Countrie("M&eacute;xico", 23.42, -99.32, 				         "http://makebudgetspublic.org/?page_id=193"));
 countries.push(new Countrie("Vietnam",       12.523104144490723, 108.33984374999994, "http://makebudgetspublic.org/?page_id=193"));
 countries.push(new Countrie("Guatemala",     15.855673509998681, -90.1318359375, 	  "http://makebudgetspublic.org/?page_id=193"));
 countries.push(new Countrie("Senegal",       14.701215324750864, -13.96412, 		  "http://makebudgetspublic.org/?page_id=193"));
 countries.push(new Countrie("Kyrgyzstan",    41.33634355096041, 73.96412, 			  "http://makebudgetspublic.org/?page_id=193"));
-
 countries.push(new Countrie("Honduras",             15.411319377980993, -86.4404296875, "http://makebudgetspublic.org/?page_id=193"));
 countries.push(new Countrie("Nicaragua",            13.19716452328198, -84.8583984375, 	"http://makebudgetspublic.org/?page_id=193"));
 countries.push(new Countrie("Republica Dominicana", 19.352610894378625, -70.3125, 		"http://makebudgetspublic.org/?page_id=193"));
@@ -47,26 +51,35 @@ countries.push(new Countrie("Ecuador",    -0.04394530819134536, -78.22265625, 		
 countries.push(new Countrie("Venezuela",    8.841651120809145, -63.4130859375, 			  "http://makebudgetspublic.org/?page_id=193"));
 countries.push(new Countrie("Brazil",    -7.18810087117902, -50.44921875, 			  "http://makebudgetspublic.org/?page_id=193"));
 countries.push(new Countrie("Argentina",    -34.016241889667015, -63.984375, 			  "http://makebudgetspublic.org/?page_id=193"));
-countries.push(new Countrie("Kyrgyzstan",    33634355096041, 7396412, 			  "http://makebudgetspublic.org/?page_id=193"));
-countries.push(new Countrie("Kyrgyzstan",    33634355096041, 7396412, 			  "http://makebudgetspublic.org/?page_id=193"));
-countries.push(new Countrie("Kyrgyzstan",    4133634355096041, 7396412, 			  "http://makebudgetspublic.org/?page_id=193"));
-countries.push(new Countrie("Kyrgyzstan",    4133634355096041, 7396412, 			  "http://makebudgetspublic.org/?page_id=193"));
-countries.push(new Countrie("Kyrgyzstan",    4133634355096041, 7396412, 			  "http://makebudgetspublic.org/?page_id=193"));
-countries.push(new Countrie("Kyrgyzstan",    4133634355096041, 7396412, 			  "http://makebudgetspublic.org/?page_id=193"));
-countries.push(new Countrie("Kyrgyzstan",    4133634355096041, 7396412, 			  "http://makebudgetspublic.org/?page_id=193"));
-countries.push(new Countrie("Kyrgyzstan",    4133634355096041, 7396412, 			  "http://makebudgetspublic.org/?page_id=193"));
-countries.push(new Countrie("Kyrgyzstan",    4133634355096041, 7396412, 			  "http://makebudgetspublic.org/?page_id=193"));
-countries.push(new Countrie("Kyrgyzstan",    4133634355096041, 7396412, 			  "http://makebudgetspublic.org/?page_id=193"));
-countries.push(new Countrie("Kyrgyzstan",    4133634355096041, 7396412, 			  "http://makebudgetspublic.org/?page_id=193"));
-countries.push(new Countrie("Kyrgyzstan",    4133634355096041, 7396412, 			  "http://makebudgetspublic.org/?page_id=193"));
-countries.push(new Countrie("Kyrgyzstan",    4133634355096041, 7396412, 			  "http://makebudgetspublic.org/?page_id=193"));
-countries.push(new Countrie("Kyrgyzstan",    4133634355096041, 7396412, 			  "http://makebudgetspublic.org/?page_id=193"));
-countries.push(new Countrie("Kyrgyzstan",    4133634355096041, 7396412, 			  "http://makebudgetspublic.org/?page_id=193"));
-countries.push(new Countrie("Kyrgyzstan",    4133634355096041, 7396412, 			  "http://makebudgetspublic.org/?page_id=193"));
-countries.push(new Countrie("Kyrgyzstan",    4133634355096041, 7396412, 			  "http://makebudgetspublic.org/?page_id=193"));
-countries.push(new Countrie("Kyrgyzstan",    4133634355096041, 7396412, 			  "http://makebudgetspublic.org/?page_id=193"));
 
+/*Africa*/
+countries.push(new Countrie("South Africa",  -28.459033019728043, 24.9609375, 		  "http://makebudgetspublic.org/?page_id=193"));
+countries.push(new Countrie("Democratic Repubic of the Congo", -1.5818302639606328, 23.4228515625, "http://makebudgetspublic.org/?page_id=193"));
+countries.push(new Countrie("Tanzania",    -5.922044619883293, 36.7822265625, 			  "http://makebudgetspublic.org/?page_id=193"));
+countries.push(new Countrie("Uganda",    1.8014609294680355, 33.310546875, 			  "http://makebudgetspublic.org/?page_id=193"));
+countries.push(new Countrie("Chad",    16.3833911236084, 20.478515625, 			  "http://makebudgetspublic.org/?page_id=193"));
+countries.push(new Countrie("Nigeria",    10.055402736564224, 8.876953125, 			  "http://makebudgetspublic.org/?page_id=193"));
+countries.push(new Countrie("Ghana",    8.233237111274553, -0.263671875, 			  "http://makebudgetspublic.org/?page_id=193"));
+countries.push(new Countrie("Cote d\'Ivoire",    7.798078531355303, -5.009765625, 			  "http://makebudgetspublic.org/?page_id=193"));
+countries.push(new Countrie("Mali",    17.895114303749153, -2.197265625, 			  "http://makebudgetspublic.org/?page_id=193"));
 
+/*Europa*/
+countries.push(new Countrie("Israel",    31.090574094954192, 35.09033203125, 			  "http://makebudgetspublic.org/?page_id=193"));
+countries.push(new Countrie("Jordan",    32.008075959291055, 37.3974609375, 			  "http://makebudgetspublic.org/?page_id=193"));
+countries.push(new Countrie("Georgia",    42.13082130188811, 43.9013671875, 			  "http://makebudgetspublic.org/?page_id=193"));
+countries.push(new Countrie("Bosnia",    43.77109381775651, 18.45703125, 			  "http://makebudgetspublic.org/?page_id=193"));
+countries.push(new Countrie("Crotia",    45.9511496866914, 16.435546875, 			  "http://makebudgetspublic.org/?page_id=193"));
+countries.push(new Countrie("Sweden",    63.97596090918338, 17.314453125, 			  "http://makebudgetspublic.org/?page_id=193"));
+
+/*Asia & others*/
+countries.push(new Countrie("Kazakhstan",    49.724479188713005, 71.015625, 			  "http://makebudgetspublic.org/?page_id=193"));
+countries.push(new Countrie("India",    22.024545601240337, 78.662109375, 			  "http://makebudgetspublic.org/?page_id=193"));
+countries.push(new Countrie("Bangladesh",    24.467150664739002, 90.72509765625, 			  "http://makebudgetspublic.org/?page_id=193"));
+countries.push(new Countrie("Cambodia",    12.768946439455956, 104.83154296875, 			  "http://makebudgetspublic.org/?page_id=193"));
+countries.push(new Countrie("Philipines",    7.754537346539386, 125.74951171875, 			  "http://makebudgetspublic.org/?page_id=193"));
+countries.push(new Countrie("Indonesia",    -0.9228116626856938, 114.0380859375, 			  "http://makebudgetspublic.org/?page_id=193"));
+countries.push(new Countrie("Fiji",    -17.685895196738677, 178.4619140625, 			  "http://makebudgetspublic.org/?page_id=193"));
+countries.push(new Countrie("South Korea",    36.77409249464195, 128.8037109375, 			  "http://makebudgetspublic.org/?page_id=193"));
 
 
 for(x in countries) {
@@ -81,6 +94,8 @@ for(x in countries) {
 	
 	//console.log(countries[x]);
 }
+
 </script>
+
 </body>
 </html>
