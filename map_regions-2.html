@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src='http://codeorigin.jquery.com/jquery-1.9.1.min.js'></script>
+	<script src='http://api.tiles.mapbox.com/mapbox.js/v1.0.2/mapbox.js'></script>
+	<link href='http://api.tiles.mapbox.com/mapbox.js/v1.0.2/mapbox.css' rel='stylesheet' />
+	<!--[if lte IE 8]>
+		<link href='http://api.tiles.mapbox.com/mapbox.js/v1.0.2/mapbox.ie.css' rel='stylesheet' >
+	<![endif]-->
+	
+	<style>
+		body { margin:0; padding:0; }
+		#map { position:absolute; top:0; bottom:0; width:100%; }
+		.map-tooltip {
+			min-width: 0px !important;
+			padding: 0 5px 0 10px !important;
+		}
+	</style>
+</head>
+
+<body>
+
+<div id='map'></div>
+
+<script type='text/javascript'>
+	var map = L.mapbox.map('map', 'caarloshugo.dayaction_regions_v4', { gridControl: false, minZoom: 2, maxZoom:4, }).setView([11.5, 1.2], 2);
+	
+	var region1 = ["MEX", "GTM", "SLV", "CUB", "HTI", "DOM", "PAN", "CRI", "NIC", "HND"];
+	var region2 = ["COL", "VEN", "ECU", "GUY", "SUR", "BRA", "PER", "BOL", "PRY", "CHL", "ARG", "URY"];
+	var region3 = ["GNB", "SLE", "LBR", "GHA", "NGA", "GNQ", "AGO", "SDN", "ERI", "ETH", "SOM", "KEN", "UGA", "TZA", "MWI", "ZMB", "MOZ", "ZWE", "BWA", "NAM", "ZAF"];
+	var region4 = ["MDG", "COD", "COG", "GAB", "CMR", "CAF", "TCD", "NER", "BEN", "TGO", "BFA", "MLI", "SEN", "CIV", "BDI", "RWA"];
+	var region5 = ["MRT", "MAR", "DZA", "TUN", "LBY", "EGY", "LBN", "JOR", "SAU", "IRQ", "YEM", "OMN", "ARE", "QAT", "IRN", "KWT", "BHR", "GAZ"];
+	var region6 = ["FJI", "PNG", "IDN", "MYS", "PHL", "KHM", "VNM", "LAO", "THA", "MMR", "TWN", "BRN", "TLS", "SGP"];
+	var region7 = ["JPN", "KOR", "PKR", "MNG", "CHN", "TJK", "KGZ", "UZB", "KAZ", "TKM", "GEO", "TUR"];
+	var region8 = ["AFG", "PAK", "IND", "NPL", "BTN", "BGD", "LKA"];
+	var region9 = ["TUR", "RUS", "BLR", "MDA", "AUT", "BEL", "BGR", "HRV", "CYP", "DNK", "EST", "FIN", "FRA", "DEU", "GRC", "HUN", "IRL", "ITA", "LVA", "LTU", "LUX", "MLT", "NLD", "POL", "PRT", "ROU", "SVK", "SVN", "ESP", "SWE", "GBR", "CZE"];
+	
+	map.gridLayer
+		.on('mousemove',function(o) {
+			if(o.data != undefined) {
+				found1 = $.inArray(o.data.ne_10m_adm, region1);	
+				found2 = $.inArray(o.data.ne_10m_adm, region2);
+				found3 = $.inArray(o.data.ne_10m_adm, region3);
+				found4 = $.inArray(o.data.ne_10m_adm, region4);
+				found5 = $.inArray(o.data.ne_10m_adm, region5);
+				found6 = $.inArray(o.data.ne_10m_adm, region6);
+				found7 = $.inArray(o.data.ne_10m_adm, region7);
+				found8 = $.inArray(o.data.ne_10m_adm, region8);
+				found9 = $.inArray(o.data.ne_10m_adm, region9);
+				
+				if(found1 > -1) {
+					alert("1");
+				} else if(found2 > -1) {
+					alert("2");
+				} else if(found3 > -1) {
+					alert("3");
+				} else if(found4 > -1) {
+					alert("4");
+				} else if(found5 > -1) {
+					alert("5");
+				} else if(found6 > -1) {
+					alert("6");
+				} else if(found7 > -1) {
+					alert("7");
+				} else if(found8 > -1) {
+					alert("8");
+				} else if(found9 > -1) {
+					alert("9");
+				}
+			}
+		}).on('mouseout', function(o) {
+			
+		}).on('click', function(o) {
+			alert("hola que hace");
+		});
+
+	map.touchZoom.disable();
+	map.doubleClickZoom.disable();
+</script>
+
+</body>
+</html>

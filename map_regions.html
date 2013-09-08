@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<script src='http://codeorigin.jquery.com/jquery-1.9.1.min.js'></script>
 	<script src='http://api.tiles.mapbox.com/mapbox.js/v1.0.2/mapbox.js'></script>
 	<link href='http://api.tiles.mapbox.com/mapbox.js/v1.0.2/mapbox.css' rel='stylesheet' />
 	<!--[if lte IE 8]>
@@ -9,11 +10,19 @@
 	
 	<style>
 		body { margin:0; padding:0; }
-		#map { position:absolute; top:0; bottom:0; width:100%; }
+		#map { position:absolute; top:0; bottom:0; width:100%; cursor:pointer; }
+		
 		.map-tooltip {
 			min-width: 0px !important;
 			padding: 0 5px 0 10px !important;
 		}
+		
+		.popup {
+			text-align: center;
+			width: 100%;
+			min-height:0px;
+			min-width:0px;
+		}		 
 	</style>
 </head>
 
@@ -22,10 +31,171 @@
 <div id='map'></div>
 
 <script type='text/javascript'>
-var map = L.mapbox.map('map', 'caarloshugo.dayaction_regions_v3', { minZoom: 2, maxZoom:6, }).setView([11.5, 1.2], 2);
+	var map    = L.mapbox.map('map', 'caarloshugo.dayaction_regions_v5', { gridControl: true, minZoom: 2, maxZoom:2, setZIndex:-1}).setView([11.5, 1.2], 2);
+	//map.gridControl.options.follow = true;
+	
+	var layer1 = L.mapbox.tileLayer('caarloshugo.dayaction_regions_1');
+	var layer2 = L.mapbox.tileLayer('caarloshugo.dayaction_regions_2');
+	var layer3 = L.mapbox.tileLayer('caarloshugo.dayaction_regions_3');
+	var layer4 = L.mapbox.tileLayer('caarloshugo.dayaction_regions_4');
+	var layer5 = L.mapbox.tileLayer('caarloshugo.dayaction_regions_5');
+	var layer6 = L.mapbox.tileLayer('caarloshugo.dayaction_regions_6');
+	var layer7 = L.mapbox.tileLayer('caarloshugo.dayaction_regions_7');
+	var layer8 = L.mapbox.tileLayer('caarloshugo.dayaction_regions_8');
+	var layer9 = L.mapbox.tileLayer('caarloshugo.dayaction_regions_9');
+	
+	layer1.setZIndex(2);
+	layer2.setZIndex(2);
+	layer3.setZIndex(2);
+	layer4.setZIndex(2);
+	layer5.setZIndex(2);
+	layer6.setZIndex(2);
+	layer7.setZIndex(2);
+	layer8.setZIndex(2);
+	layer9.setZIndex(2);
+	
+	addAllLayers();
+	removeAllLayers();
+	
+	var region1 = ["MEX", "GTM", "SLV", "CUB", "HTI", "DOM", "PAN", "CRI", "NIC", "HND"];
+	var region2 = ["COL", "VEN", "ECU", "GUY", "SUR", "BRA", "PER", "BOL", "PRY", "CHL", "ARG", "URY"];
+	var region3 = ["GNB", "SLE", "LBR", "GHA", "NGA", "GNQ", "AGO", "SDN", "ERI", "ETH", "SOM", "KEN", "UGA", "TZA", "MWI", "ZMB", "MOZ", "ZWE", "BWA", "NAM", "ZAF"];
+	var region4 = ["MDG", "COD", "COG", "GAB", "CMR", "CAF", "TCD", "NER", "BEN", "TGO", "BFA", "MLI", "SEN", "CIV", "BDI", "RWA"];
+	var region5 = ["MRT", "MAR", "DZA", "TUN", "LBY", "EGY", "LBN", "JOR", "SAU", "IRQ", "YEM", "OMN", "ARE", "QAT", "IRN", "KWT", "BHR", "GAZ"];
+	var region6 = ["FJI", "PNG", "IDN", "MYS", "PHL", "KHM", "VNM", "LAO", "THA", "MMR", "TWN", "BRN", "TLS", "SGP"];
+	var region7 = ["JPN", "KOR", "PKR", "MNG", "CHN", "TJK", "KGZ", "UZB", "KAZ", "TKM", "GEO", "TUR"];
+	var region8 = ["AFG", "PAK", "IND", "NPL", "BTN", "BGD", "LKA"];
+	var region9 = ["TUR", "RUS", "BLR", "MDA", "AUT", "BEL", "BGR", "HRV", "CYP", "DNK", "EST", "FIN", "FRA", "DEU", "GRC", "HUN", "IRL", "ITA", "LVA", "LTU", "LUX", "MLT", "NLD", "POL", "PRT", "ROU", "SVK", "SVN", "ESP", "SWE", "GBR", "CZE"];
+	var flag    = false;
 
-map.touchZoom.disable();
-map.doubleClickZoom.disable();
+				
+	map.gridLayer
+	.on('mousemove',function(o) {	
+		if(o.data != undefined && flag == false) {
+			found1 = $.inArray(o.data.ne_10m_adm, region1);	
+			found2 = $.inArray(o.data.ne_10m_adm, region2);
+			found3 = $.inArray(o.data.ne_10m_adm, region3);
+			found4 = $.inArray(o.data.ne_10m_adm, region4);
+			found5 = $.inArray(o.data.ne_10m_adm, region5);
+			found6 = $.inArray(o.data.ne_10m_adm, region6);
+			found7 = $.inArray(o.data.ne_10m_adm, region7);
+			found8 = $.inArray(o.data.ne_10m_adm, region8);
+			found9 = $.inArray(o.data.ne_10m_adm, region9);
+			
+			if(found1 > -1) {
+				removeAllLayers();
+				map.addLayer(layer1);
+				
+				flag = true;
+			} else if(found2 > -1) {
+				removeAllLayers();
+				map.addLayer(layer2);
+				
+				flag = true;
+			} else if(found3 > -1) {
+				removeAllLayers();
+				map.addLayer(layer3);
+				
+				flag = true;
+			} else if(found4 > -1) {
+				removeAllLayers();
+				map.addLayer(layer4);
+				
+				flag = true;
+			} else if(found5 > -1) {
+				removeAllLayers();
+				map.addLayer(layer5);
+				
+				flag = true;
+			} else if(found6 > -1) {
+				removeAllLayers();
+				map.addLayer(layer6);
+				
+				flag = true;
+			} else if(found7 > -1) {
+				removeAllLayers();
+				map.addLayer(layer7);
+				
+				flag = true;
+			} else if(found8 > -1) {
+				removeAllLayers();
+				map.addLayer(layer8);
+				
+				flag = true;
+			} else if(found9 > -1) {
+				removeAllLayers();
+				map.addLayer(layer9);
+				
+				flag = true;
+			}
+			
+			if(flag == false) {
+				removeAllLayers();
+			}
+		}
+	}).on('mouseout', function(o) {
+		removeAllLayers();
+		flag = false;
+	}).on('click', function(o) {
+		if(o.data != undefined) {
+			found1 = $.inArray(o.data.ne_10m_adm, region1);	
+			found2 = $.inArray(o.data.ne_10m_adm, region2);
+			found3 = $.inArray(o.data.ne_10m_adm, region3);
+			found4 = $.inArray(o.data.ne_10m_adm, region4);
+			found5 = $.inArray(o.data.ne_10m_adm, region5);
+			found6 = $.inArray(o.data.ne_10m_adm, region6);
+			found7 = $.inArray(o.data.ne_10m_adm, region7);
+			found8 = $.inArray(o.data.ne_10m_adm, region8);
+			found9 = $.inArray(o.data.ne_10m_adm, region9);
+			
+			if(found1 > -1) {
+				window.location = "http://globalbtap.org/2013/mexico-central-america-and-caribbean";
+			} else if(found2 > -1) {
+				window.location = "http://globalbtap.org/2013/south-america";
+			} else if(found3 > -1) {
+				window.location = "http://globalbtap.org/2013/anglophone-africa";
+			} else if(found4 > -1) {
+				window.location = "http://globalbtap.org/2013/francophone-africa";
+			} else if(found5 > -1) {
+				window.location = "http://globalbtap.org/2013/mena";
+			} else if(found6 > -1) {
+				window.location = "http://globalbtap.org/2013/southeast-asia-and-pacific";
+			} else if(found7 > -1) {
+				window.location = "http://globalbtap.org/2013/central-asia";
+			} else if(found8 > -1) {
+				window.location = "http://globalbtap.org/2013/southern-asia";
+			} else if(found9 > -1) {
+				window.location = " http://globalbtap.org/2013/europe";
+			}
+		}
+	});
+	
+	map.touchZoom.disable();
+	map.doubleClickZoom.disable();
+	
+	function removeAllLayers() {
+		map.removeLayer(layer1);
+		map.removeLayer(layer2);
+		map.removeLayer(layer3);
+		map.removeLayer(layer4);
+		map.removeLayer(layer5);
+		map.removeLayer(layer6);
+		map.removeLayer(layer7);
+		map.removeLayer(layer8);
+		map.removeLayer(layer9);
+	}
+	
+	function addAllLayers() {
+		map.addLayer(layer1);
+		map.addLayer(layer2);
+		map.addLayer(layer3);
+		map.addLayer(layer4);
+		map.addLayer(layer5);
+		map.addLayer(layer6);
+		map.addLayer(layer7);
+		map.addLayer(layer8);
+		map.addLayer(layer9);
+	}
 </script>
 
 </body>
