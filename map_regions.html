@@ -15,6 +15,7 @@
 		.map-tooltip {
 			min-width: 0px !important;
 			padding: 0 5px 0 10px !important;
+			position:auto;
 		}
 		
 		.popup {
@@ -22,7 +23,9 @@
 			width: 100%;
 			min-height:0px;
 			min-width:0px;
-		}		 
+		}
+		
+		.close { display:none !important; }	 
 	</style>
 </head>
 
@@ -30,16 +33,15 @@
 
 <div id='map'></div>
 
-<script type='text/javascript'>
-	var map    = L.mapbox.map('map', 'caarloshugo.dayaction_regions_v5', { gridControl: true, minZoom: 2, maxZoom:2, setZIndex:-1}).setView([11.5, 1.2], 2);
-	//map.gridControl.options.follow = true;
+<script type='text/javascript'>  
+	var map         = L.mapbox.map('map', 'caarloshugo.dayaction_regions_v5', { gridControl: true, minZoom: 2, maxZoom:2, setZIndex:-1}).setView([11.5, 1.2], 2);
 	
 	var layer1 = L.mapbox.tileLayer('caarloshugo.dayaction_regions_1');
 	var layer2 = L.mapbox.tileLayer('caarloshugo.dayaction_regions_2');
 	var layer3 = L.mapbox.tileLayer('caarloshugo.dayaction_regions_3');
 	var layer4 = L.mapbox.tileLayer('caarloshugo.dayaction_regions_4');
 	var layer5 = L.mapbox.tileLayer('caarloshugo.dayaction_regions_5');
-	var layer6 = L.mapbox.tileLayer('caarloshugo.dayaction_regions_6');
+	var layer6 = L.mapbox.tileLayer('caarloshugo.dayaction_regions_6_v2');
 	var layer7 = L.mapbox.tileLayer('caarloshugo.dayaction_regions_7');
 	var layer8 = L.mapbox.tileLayer('caarloshugo.dayaction_regions_8');
 	var layer9 = L.mapbox.tileLayer('caarloshugo.dayaction_regions_9');
@@ -82,10 +84,10 @@
 			found8 = $.inArray(o.data.ne_10m_adm, region8);
 			found9 = $.inArray(o.data.ne_10m_adm, region9);
 			
+
 			if(found1 > -1) {
 				removeAllLayers();
 				map.addLayer(layer1);
-				
 				flag = true;
 			} else if(found2 > -1) {
 				removeAllLayers();
@@ -133,6 +135,8 @@
 				removeAllLayers();
 			}
 		}
+		
+		
 	}).on('mouseout', function(o) {
 		removeAllLayers();
 		flag = false;
