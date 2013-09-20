@@ -34,17 +34,18 @@
 <div id='map'></div>
 
 <script type='text/javascript'>  
-	var map         = L.mapbox.map('map', 'caarloshugo.dayaction_regions_v5', { gridControl: true, minZoom: 2, maxZoom:2, setZIndex:-1}).setView([11.5, 1.2], 2);
+	var map         = L.mapbox.map('map', 'caarloshugo.dayaction_regions_v6', { gridControl: true, minZoom: 2, maxZoom:2, setZIndex:-1}).setView([11.5, 1.2], 2);
 	
-	var layer1 = L.mapbox.tileLayer('caarloshugo.dayaction_regions_1');
-	var layer2 = L.mapbox.tileLayer('caarloshugo.dayaction_regions_2');
-	var layer3 = L.mapbox.tileLayer('caarloshugo.dayaction_regions_3');
-	var layer4 = L.mapbox.tileLayer('caarloshugo.dayaction_regions_4');
-	var layer5 = L.mapbox.tileLayer('caarloshugo.dayaction_regions_5');
-	var layer6 = L.mapbox.tileLayer('caarloshugo.dayaction_regions_6_v3');
-	var layer7 = L.mapbox.tileLayer('caarloshugo.dayaction_regions_7');
-	var layer8 = L.mapbox.tileLayer('caarloshugo.dayaction_regions_8');
-	var layer9 = L.mapbox.tileLayer('caarloshugo.dayaction_regions_9');
+	var layer1  = L.mapbox.tileLayer('caarloshugo.dayaction_regions_1');
+	var layer2  = L.mapbox.tileLayer('caarloshugo.dayaction_regions_2');
+	var layer3  = L.mapbox.tileLayer('caarloshugo.dayaction_regions_3');
+	var layer4  = L.mapbox.tileLayer('caarloshugo.dayaction_regions_4');
+	var layer5  = L.mapbox.tileLayer('caarloshugo.dayaction_regions_5');
+	var layer6  = L.mapbox.tileLayer('caarloshugo.dayaction_regions_6_v3');
+	var layer7  = L.mapbox.tileLayer('caarloshugo.dayaction_regions_7');
+	var layer8  = L.mapbox.tileLayer('caarloshugo.dayaction_regions_8');
+	var layer9  = L.mapbox.tileLayer('caarloshugo.dayaction_regions_9');
+	var layer10 = L.mapbox.tileLayer('caarloshugo.dayaction_regions_10');
 	
 	layer1.setZIndex(2);
 	layer2.setZIndex(2);
@@ -55,34 +56,37 @@
 	layer7.setZIndex(2);
 	layer8.setZIndex(2);
 	layer9.setZIndex(2);
+	layer10.setZIndex(2);
 	
 	addAllLayers();
 	removeAllLayers();
 	
-	var region1 = ["MEX", "GTM", "SLV", "CUB", "HTI", "DOM", "PAN", "CRI", "NIC", "HND"];
-	var region2 = ["COL", "VEN", "ECU", "GUY", "SUR", "BRA", "PER", "BOL", "PRY", "CHL", "ARG", "URY"];
-	var region3 = ["GNB", "SLE", "LBR", "GHA", "NGA", "GNQ", "AGO", "SDN", "ERI", "ETH", "SOM", "KEN", "UGA", "TZA", "MWI", "ZMB", "MOZ", "ZWE", "BWA", "NAM", "ZAF"];
-	var region4 = ["MDG", "COD", "COG", "GAB", "CMR", "CAF", "TCD", "NER", "BEN", "TGO", "BFA", "MLI", "SEN", "CIV", "BDI", "RWA"];
-	var region5 = ["MRT", "MAR", "DZA", "TUN", "LBY", "EGY", "LBN", "JOR", "SAU", "IRQ", "YEM", "OMN", "ARE", "QAT", "IRN", "KWT", "BHR", "GAZ"];
-	var region6 = ["FJI", "PNG", "IDN", "MYS", "PHL", "KHM", "VNM", "LAO", "THA", "MMR", "TWN", "BRN", "TLS", "SGP", "AUS", "NZL"];
-	var region7 = ["JPN", "KOR", "PKR", "MNG", "CHN", "TJK", "KGZ", "UZB", "KAZ", "TKM", "GEO", "TUR"];
-	var region8 = ["AFG", "PAK", "IND", "NPL", "BTN", "BGD", "LKA"];
-	var region9 = ["TUR", "RUS", "BLR", "MDA", "AUT", "BEL", "BGR", "HRV", "CYP", "DNK", "EST", "FIN", "FRA", "DEU", "GRC", "HUN", "IRL", "ITA", "LVA", "LTU", "LUX", "MLT", "NLD", "POL", "PRT", "ROU", "SVK", "SVN", "ESP", "SWE", "GBR", "CZE"];
-	var flag    = false;
+	var region1  = ["MEX", "GTM", "SLV", "CUB", "HTI", "DOM", "PAN", "CRI", "NIC", "HND"];
+	var region2  = ["COL", "VEN", "ECU", "GUY", "SUR", "BRA", "PER", "BOL", "PRY", "CHL", "ARG", "URY"];
+	var region3  = ["GNB", "SLE", "LBR", "GHA", "NGA", "GNQ", "AGO", "SDN", "ERI", "ETH", "SOM", "KEN", "UGA", "TZA", "MWI", "ZMB", "MOZ", "ZWE", "BWA", "NAM", "ZAF"];
+	var region4  = ["MDG", "COD", "COG", "GAB", "CMR", "CAF", "TCD", "NER", "BEN", "TGO", "BFA", "MLI", "SEN", "CIV", "BDI", "RWA"];
+	var region5  = ["MRT", "MAR", "DZA", "TUN", "LBY", "EGY", "LBN", "JOR", "SAU", "IRQ", "YEM", "OMN", "ARE", "QAT", "IRN", "KWT", "BHR", "GAZ"];
+	var region6  = ["FJI", "PNG", "IDN", "MYS", "PHL", "KHM", "VNM", "LAO", "THA", "MMR", "TWN", "BRN", "TLS", "SGP", "AUS", "NZL"];
+	var region7  = ["JPN", "KOR", "PKR", "MNG", "CHN", "TJK", "KGZ", "UZB", "KAZ", "TKM", "GEO", "TUR"];
+	var region8  = ["AFG", "PAK", "IND", "NPL", "BTN", "BGD", "LKA"];
+	var region9  = ["TUR", "RUS", "BLR", "MDA", "AUT", "BEL", "BGR", "HRV", "CYP", "DNK", "EST", "FIN", "GRC", "HUN", "IRL", "ITA", "LVA", "LTU", "LUX", "MLT", "NLD", "POL", "PRT", "ROU", "SVK", "SVN", "ESP", "SWE", "CZE"];
+	var region10 = ["USA", "FRA", "DEU", "GBR"];
+	var flag     = false;
 
 				
 	map.gridLayer
 	.on('mousemove',function(o) {	
 		if(o.data != undefined && flag == false) {
-			found1 = $.inArray(o.data.ne_10m_adm, region1);	
-			found2 = $.inArray(o.data.ne_10m_adm, region2);
-			found3 = $.inArray(o.data.ne_10m_adm, region3);
-			found4 = $.inArray(o.data.ne_10m_adm, region4);
-			found5 = $.inArray(o.data.ne_10m_adm, region5);
-			found6 = $.inArray(o.data.ne_10m_adm, region6);
-			found7 = $.inArray(o.data.ne_10m_adm, region7);
-			found8 = $.inArray(o.data.ne_10m_adm, region8);
-			found9 = $.inArray(o.data.ne_10m_adm, region9);
+			found1  = $.inArray(o.data.ne_10m_adm, region1);	
+			found2  = $.inArray(o.data.ne_10m_adm, region2);
+			found3  = $.inArray(o.data.ne_10m_adm, region3);
+			found4  = $.inArray(o.data.ne_10m_adm, region4);
+			found5  = $.inArray(o.data.ne_10m_adm, region5);
+			found6  = $.inArray(o.data.ne_10m_adm, region6);
+			found7  = $.inArray(o.data.ne_10m_adm, region7);
+			found8  = $.inArray(o.data.ne_10m_adm, region8);
+			found9  = $.inArray(o.data.ne_10m_adm, region9);
+			found10 = $.inArray(o.data.ne_10m_adm, region10);
 			
 
 			if(found1 > -1) {
@@ -129,6 +133,11 @@
 				map.addLayer(layer9);
 				
 				flag = true;
+			} else if(found10 > -1) {
+				removeAllLayers();
+				map.addLayer(layer10);
+				
+				flag = true;
 			}
 			
 			if(flag == false) {
@@ -151,6 +160,7 @@
 			found7 = $.inArray(o.data.ne_10m_adm, region7);
 			found8 = $.inArray(o.data.ne_10m_adm, region8);
 			found9 = $.inArray(o.data.ne_10m_adm, region9);
+			found10 = $.inArray(o.data.ne_10m_adm, region10);
 			
 			if(found1 > -1) {
 				window.parent.location.href = "http://globalbtap.org/2013/mexico-central-america-and-caribbean";
@@ -170,6 +180,8 @@
 				window.parent.location.href = "http://globalbtap.org/2013/southern-asia";
 			} else if(found9 > -1) {
 				window.parent.location.href = " http://globalbtap.org/2013/europe";
+			} else if(found10 > -1) {
+				window.parent.location.href = " http://globalbtap.org/2013/europe";
 			}
 		}
 	});
@@ -187,6 +199,7 @@
 		map.removeLayer(layer7);
 		map.removeLayer(layer8);
 		map.removeLayer(layer9);
+		map.removeLayer(layer10);
 	}
 	
 	function addAllLayers() {
@@ -199,6 +212,7 @@
 		map.addLayer(layer7);
 		map.addLayer(layer8);
 		map.addLayer(layer9);
+		map.removeLayer(layer10);
 	}
 </script>
 
