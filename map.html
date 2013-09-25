@@ -18,7 +18,7 @@
 <div id='map'></div>
 
 <script type='text/javascript'>
-var map = L.mapbox.map('map', 'caarloshugo.dayactioncountries_v6	', { minZoom: 2, maxZoom:6, }).setView([11.5, 1.2], 2);
+var map = L.mapbox.map('map', 'caarloshugo.dayactioncountries_v7', { minZoom: 2, maxZoom:6, }).setView([11.5, 1.2], 2);
 
 map.touchZoom.disable();
 map.doubleClickZoom.disable();
@@ -37,10 +37,6 @@ function Countrie(name, lat, lon, url) {
 var countries = [];
 
 /*America & others*/
-/*
-macedonia:http://globalbtap.org/2013/macedonia/
-Azerbaijan: http://globalbtap.org/2013/azerbaijan/
-*/
 
 //countries.push(new Countrie("El salvador",   		13.58, -88.94, 					     	"http://globalbtap.org/2013/el-salvador"));
 countries.push(new Countrie("M&eacute;xico", 		23.42, -99.32, 				         	"http://globalbtap.org/2013/mexico"));
@@ -76,6 +72,7 @@ countries.push(new Countrie("Nigeria",    	  10.055402736564224, 8.876953125, 	 
 countries.push(new Countrie("Bosnia",    43.77109381775651, 18.45703125, 	 "http://globalbtap.org/2013/bosnia-herzegovina"));
 //countries.push(new Countrie("Crotia",    45.9511496866914, 16.435546875, 	 "http://globalbtap.org/2013/croatia"));
 //countries.push(new Countrie("Sweden",    63.97596090918338, 17.314453125, 	 "http://globalbtap.org/2013/sweden"));
+countries.push(new Countrie("Macedonia",    41.63186741069748, 21.8463134765625, 	 "http://globalbtap.org/2013/macedonia"));
 
 /*Asia & others*/
 countries.push(new Countrie("Kazakhstan",  49.724479188713005, 71.015625, 		"http://globalbtap.org/2013/kazakstan"));
@@ -87,7 +84,7 @@ countries.push(new Countrie("Philippines",  7.754537346539386, 125.74951171875, 
 countries.push(new Countrie("Indonesia",   -0.9228116626856938, 114.0380859375, "http://globalbtap.org/2013/indonesia"));
 //countries.push(new Countrie("Fiji",    	   -17.685895196738677, 178.4619140625, "http://globalbtap.org/2013/fiji"));
 //countries.push(new Countrie("South Korea", 36.77409249464195, 128.8037109375, 	"http://globalbtap.org/2013/south-korea"));
-	
+countries.push(new Countrie("Azerbaijan", 40.32665496008367, 48.07891845703125, 	"http://globalbtap.org/2013/azerbaijan"));
 
 for(x in countries) {
 	L.marker([countries[x].lat, countries[x].lon], {
