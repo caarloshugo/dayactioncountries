@@ -93,7 +93,7 @@ for(x in countries) {
 			iconAnchor:   [10, 30],
 			popupAnchor:  [30, 30]
 		})
-	}).addTo(map).bindPopup('<p><strong>' + countries[x].name + '</strong><br/><a href="' + countries[x].url + '">See more</a></p>');
+	}).addTo(map).bindPopup('<p><strong>' + countries[x].name + '</strong><br/><a target="_parent" href="' + countries[x].url + '">See more</a></p>');
 }
 
 </script>
