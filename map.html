@@ -18,7 +18,7 @@
 <div id='map'></div>
 
 <script type='text/javascript'>
-var map = L.mapbox.map('map', 'caarloshugo.dayactioncountries_v7', { minZoom: 2, maxZoom:6, }).setView([11.5, 1.2], 2);
+var map = L.mapbox.map('map', 'caarloshugo.dayactioncountries_v8', { minZoom: 2, maxZoom:6, }).setView([11.5, 1.2], 2);
 
 map.touchZoom.disable();
 map.doubleClickZoom.disable();
@@ -85,6 +85,7 @@ countries.push(new Countrie("Indonesia",   -0.9228116626856938, 114.0380859375, 
 //countries.push(new Countrie("Fiji",    	   -17.685895196738677, 178.4619140625, "http://globalbtap.org/2013/fiji"));
 //countries.push(new Countrie("South Korea", 36.77409249464195, 128.8037109375, 	"http://globalbtap.org/2013/south-korea"));
 countries.push(new Countrie("Azerbaijan", 40.32665496008367, 48.07891845703125, 	"http://globalbtap.org/2013/azerbaijan"));
+countries.push(new Countrie("Serbia", 44.21764696919354, 20.819091796875, 	"http://globalbtap.org/2013/serbia"));
 
 for(x in countries) {
 	L.marker([countries[x].lat, countries[x].lon], {
